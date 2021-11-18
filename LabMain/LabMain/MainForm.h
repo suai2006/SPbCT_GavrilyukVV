@@ -126,7 +126,6 @@ namespace LabMain {
 			this->button1->Text = L"Задание №1";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MainForm::buttons_Click);
-			this->button1->PerformClick();
 			// 
 			// button2
 			// 
@@ -237,6 +236,7 @@ namespace LabMain {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Санкт-Петербургский государственный университет телекоммуникаций им. проф. М.А.Бо"
 				L"нч-Бруевича";
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->splitContainer1->Panel1->ResumeLayout(false);
 			this->splitContainer1->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
@@ -261,5 +261,9 @@ namespace LabMain {
 
 	}
 	
+	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		frame = gcnew lab1();
+		this->panel1->Controls->Add(frame);
+	}
 };
 }
