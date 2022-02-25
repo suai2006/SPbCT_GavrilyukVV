@@ -1,6 +1,4 @@
 #pragma once
-#include <iostream>
-#include <string.h>
 #include "Purse.h"
 
 // ввод целого числа в заданном диапазоне
@@ -64,9 +62,7 @@ void AddMoney(Purse& Purse){
     double money;
     std::cin >> money;
     Purse.addMoney(i, money);
-
-    cout << "RUB: " << (int)Purse.sumPerRub() << " cop: " << int((Purse.sumPerRub() - (int)Purse.sumPerRub()) * 100) << std::endl;
-
+    
     ExitBack();
 }
 
@@ -89,6 +85,8 @@ void exchange(Purse& Purse) {
     std::cout << "Выберите пункт: ";
     int i = GetNumber(1, 3) - 1;
     Purse.toRub(i);
+
+    ExitBack();
 }
 
 void exchangeRateChage(Purse& Purse) {

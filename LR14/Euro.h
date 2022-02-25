@@ -9,7 +9,7 @@ public:
     static double kurse;
     Euro() {};
     ~Euro() {}
-    double toRub(double x, double r) override;
-    void show(double x)const override;
+    double toRub(double x) override;
+    void show(double x) const override;
 };
 

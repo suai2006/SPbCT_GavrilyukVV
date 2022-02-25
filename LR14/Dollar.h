@@ -8,7 +8,7 @@ public:
     static double kurse;
     Dollar() {};
     ~Dollar() {}
-    double toRub(double x, double r) override;
+    double toRub(double x) override;
     void show(double x) const override;
 };
 

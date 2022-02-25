@@ -1,6 +1,3 @@
-#include "Dollar.h"
-#include "Euro.h"
-#include "Pound.h"
 #include "Header.h"
 
 int main() {
@@ -9,21 +6,23 @@ int main() {
 
     Purse pp; // Кошелек
 
-    Dollar *usd = new Dollar;
-    Euro *euro = new Euro;
-    Pound *pound = new Pound;
+    Сurrency* usd = new Dollar;
+    Сurrency* euro = new Euro;
+    Сurrency* pound = new Pound;
 
-    // Формально может не быть ничего, не делал проверки, поэтому если пусто то лучше добавить в moneyBox 0.0
-    pp.add(usd, 20.50, 68.34);
-    pp.add(euro, 15.20,73.28);
-    pp.add(pound, 15.20, 88.23);
+    // Формально может не быть денег, не делал проверки, поэтому если пусто то лучше добавить в moneyBox 0.0
+
+    pp.add(usd, 20.50);
+    pp.add(euro, 15.20);
+    pp.add(pound, 15.20);
 
     pp.showM();
-    cout << "RUB: " << (int)pp.sumPerRub() << " cop: " << int((pp.sumPerRub() - (int)pp.sumPerRub()) * 100);
+    pp.sumPerRub();
     
     bool done = false;
     while (!done)
     {
+        
         switch (Menu())
         {
         case 1: exchange(pp); break;

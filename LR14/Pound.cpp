@@ -1,8 +1,10 @@
 #include "Pound.h"
 
-double Pound::toRub(double x, double r) {
-    return x * r;
+double Pound::toRub(double x) {
+    cout << "Курс Pound " << kurse << endl;
+    return x * kurse;
 }
 void Pound::show(double x)const {
-    cout << fixed << setprecision(2) << "POUND: " << static_cast<int>(x) << " pence: " << (x - (int)x) * 100 << endl;
+    cout << fixed << setprecision(2) << "POUND: " << x << endl;
 }
+double Pound::kurse = 88.23;

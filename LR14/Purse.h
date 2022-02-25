@@ -1,10 +1,8 @@
 #pragma once
-#include <iostream>
-#include <iomanip>
-#include <vector>
-#include <numeric>
-#include <string.h>
 #include "Ñurrency.h"
+#include "Dollar.h"
+#include "Euro.h"
+#include "Pound.h"
 
 using namespace std;
 class Purse
@@ -12,7 +10,6 @@ class Purse
 private:
     vector<Ñurrency*> p;
     vector <double> moneybox;
-    vector <double> exchangeRate;
     
 public:
     Purse() = default;
@@ -22,55 +19,11 @@ public:
     ~Purse() {}
 
     void showM()const;
-    double sumPerRub();
-
-    void addMoney(int i, double x) {
-        const auto& item = p[i];
-        double& money = moneybox[i];
-        money = money + x;
-        showM();
-    }   
-
-    void getMoney(int i, double x) {
-        const auto& item = p[i];
-        double& money = moneybox[i];
-        cout << "Ââåäåíà ñóììà " << x << endl;
-        if (money >= x) {
-            money = money - x;
-            showM();  
-            cout << "RUB: " << (int)sumPerRub() << " cop: " << int((sumPerRub() - (int)sumPerRub()) * 100) << endl;
-        }
-        else {
-
-            cout << "Ó âàñ ñòîëüêî íåò" << endl;            
-            cout << "Ïîâòîðèòå ââîä: ";
-            double m;
-            cin >> m;
-            getMoney(i, m);
-        }
-        
-    }
-
-    void add(Ñurrency* c, double x, double rate) {
-        p.push_back(c);
-        moneybox.push_back(x);
-        exchangeRate.push_back(rate);
-    }
-
-    void rateChage(int i, double x) {
-        const auto& item = p[i];
-        double& eRate = exchangeRate[i];
-        eRate = x;
-        showM();
-        cout << "RUB: " << (int)sumPerRub() << " cop: " << int((sumPerRub() - (int)sumPerRub()) * 100) << std::endl;
-    }
-
-    void toRub(int i) {
-        const auto& item = p[i];
-        double& money = moneybox[i];
-        double& eRate = exchangeRate[i];
-        cout << "1 ue = " << eRate << "ð." << endl;
-        cout << money << " ue = " << item->toRub(money, eRate) << "ð" << endl;
-    }
+    void sumPerRub();
+    void addMoney(int i, double x);
+    void getMoney(int i, double x);
+    void add(Ñurrency* c, double x);
+    void rateChage(int i, double x);
+    void toRub(int i);    
 };
 
