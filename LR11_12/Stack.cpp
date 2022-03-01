@@ -1,28 +1,76 @@
-#include "Stack.h"
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
+using namespace std;
+
+template <class SType> class Stack
+ {
+
+private:
+    vector <SType> Bufer;
+
+    bool isEmpty() {
+        if (Bufer.size() == 0) {
+            return false;
+        }
+        return true;
+    }
+public:
+    Stack() {}
+    ~Stack() {}
+
+    void push(const SType& i) {
+
+        Bufer.push_back(i);        
+        cout << "Втолкнули в стэк: ";
+        cout << i << endl;
+    }
+    
+    void pop () {
+        if (isEmpty()) {
+            
+            cout << "Втолкнули из стэка: ";
+            cout << Bufer.back() << endl;
+            Bufer.pop_back();
+        }
+        else {
+            cout << "Стэк пуст" << endl;
+        }
+        
+    }
+    
+};
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
+    Stack<int> stack;
 
-    Stack<int> a; // создание целочисленного стека
-    Stack<double> b; // создание вещественного стека
-    Stack<char> c; //создание символьного стека
-    int i;
-    // использование целого и вещественного стеков
-    a.push(1);
-    b.push(99.3);
-    a.push(2);
-    b.push(-12.23);
-    cout << a.pop() << " ";
-    cout << a.pop() << " ";
-    cout << b.pop() << " ";
-    cout << b.pop() << "\n";
+    for (int i = 0; i < 5; i++) {
+        stack.push(i);
+    }
 
-    // демонстрация символьного стека
-    for (i = 0; i < 10; i++) c.push((char)'A' + i);
-    for (i = 0; i < 10; i ++) cout << c.pop();
     cout << endl;
 
+    for (int i = 0; i <= 5; i++) {
+        stack.pop();
+    }
+
+    cout << endl;
+    cout<< "Тестируем работу класса со строками" << endl;
+    cout << endl;
+
+    Stack<string> stack1;
+    for (int i = 0; i < 5; i++) {
+        stack1.push("строка "+to_string(i));
+    }
+
+    cout << endl;
+
+    for (int i = 0; i <= 5; i++) {
+        stack1.pop();
+    }
     return 0;
 }
 
