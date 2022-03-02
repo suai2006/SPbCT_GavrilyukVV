@@ -1,16 +1,15 @@
 #include "UserClass.h"
 
-UserClass::UserClass()
-{
-    cout << "UserClass инициализирован" << endl;
-}
+UserClass::UserClass(){}
 
-UserClass::~UserClass()
-{
-    cout << "UserClass разрушен" << endl;
-}
+UserClass::~UserClass(){}
 
-UserClass& UserClass::operator=(const UserClass& ob)
-{
+UserClass& UserClass::operator=(const UserClass& ob){
     return *this;
 }
+ostream& operator<<(ostream& out, const UserClass& ob) {
+	out << "UserClass";
+	return out;
+}
+
+

@@ -10,4 +10,6 @@ public:
 	UserClass();
 	~UserClass();
 	UserClass& operator=(const UserClass& ob);
+	friend ostream& operator<<(ostream& out, const UserClass& ob);// для перегрузки вывода на экран
+	
 };
